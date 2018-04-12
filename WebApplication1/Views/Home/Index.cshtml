@@ -1,0 +1,68 @@
+﻿@using WebApplication1.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+@model SessionAspDotNetMvc
+<link href="~/Content/logo.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css" type="text/css">
+
+<div class="elegantshadow">
+    <h1>Minerva</h1>
+    <h1>Bookstore</h1>
+    </div>
+   
+
+
+        <p class="lead" style="font-family:'Lucida Calligraphy'">
+            The Best Bookstore Online
+            Over 6 million books ready for shipment within 24 hours and 4.5 million eBooks to download now..
+        </p>
+        @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+    
+    @*<div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+
+@if (this.User.IsInRole("Admin"))
+{
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Admin &raquo;</a></p>
+    <button onclick="window.location.pathname = '<%= Url.Action("Admin", "Account") %>'">Cancel</button>*@
+    @*<input type="button" value="Go Somewhere Else" onclick="location.href='<%:Url.Action("Admin", "Account")%>'"/>*@
+
+ <button class="btn btn-info btn-lg" type="button" id="addressSearch" 
+          onclick="location.href='@Url.Action("Create", "Roles")'"> Create Roles </button>
+        <button class="btn btn-info btn-lg" type="button" id="addressSearch"
+                onclick="location.href='@Url.Action("ManageUserRoles", "Roles")'">
+            Manage User Roles
+        </button>
+        <button class="btn btn-info btn-lg" type="button" id="addressSearch"
+                onclick="location.href='@Url.Action("Create", "Minerva_BookList")'">
+            Add books details 
+        </button>
+}
+else{
+<button class="btn btn-danger btn-lg" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Index", "Minerva_BookList")'">
+    Shop Now!
+</button>
+}
+
